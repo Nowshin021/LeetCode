@@ -18,3 +18,16 @@ ListNode* removeElements(ListNode* head, int val) {
         }
         return privious->next;
     }
+
+//recursive 
+ListNode* removeElements(ListNode* head, int val) {
+        //recursive 
+        if(head==NULL){return NULL;}
+        if(head->next==NULL && head->val==val){return NULL;}
+        if(head->val==val){
+            return removeElements(head->next, val);
+            
+        }
+        head->next =removeElements(head->next, val);
+        return head;
+    }   
